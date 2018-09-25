@@ -18,9 +18,6 @@ public class Main {
             System.out.println("Sorry that number isn't what I had in mind. Please try again");
         }
 
-
         }
-
-
     }
 }
