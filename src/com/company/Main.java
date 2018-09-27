@@ -40,7 +40,16 @@ public class Main {
                 System.out.println("The number I am guessing is " + maxValue/2 + ", is this number higher, lower, or correct?");
                 if(input.next().equalsIgnoreCase("Greater"))
                 {
-                    
+                    int secValue = (maxValue / 2)+ maxValue / 4;
+                    System.out.println("The number I am guessing now is " + secValue + ", is this number higher, lower, or correct?");
+                }
+                else
+                {
+                    if(input.next().equalsIgnoreCase("Lower"))
+                    {
+                        
+
+                    }
                 }
 
 
