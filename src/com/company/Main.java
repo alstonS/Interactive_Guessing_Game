@@ -9,6 +9,7 @@ public class Main {
 
 
             int ranNum = (int) ((Math.random() * (10)));
+            int guessCounter=0;
             String randomNum = Integer.toString(ranNum);
             System.out.println("I am thinking of a number 0-10. Guess my Number");
             boolean GUESS = false;
@@ -19,14 +20,30 @@ public class Main {
                     GUESS = true;
                 } else {
                     System.out.println("Sorry that number isn't what I had in mind. Please try again");
+                    guessCounter++;
                 }
 
             }
+            System.out.println("You have guessed my number in " + guessCounter + " attempt(s)! That's great!");
+
         }
         else
         {
             if(input.next().equals("2"))
             {
+
+                System.out.println("I can try to guess your number, but first select a difficulty level by entering '1' for numbers in ranges 1-10, '2' for numbers in range 1-100, '3' for numbers in range 1-1000, '4' for numbers in range 1-10000");
+
+                int maxValue= (int) Math.pow(10,Integer.parseInt(input.next()));
+
+                System.out.println(maxValue);
+                System.out.println("The number I am guessing is " + maxValue/2 + ", is this number higher, lower, or correct?");
+                if(input.next().equalsIgnoreCase("Greater"))
+                {
+                    
+                }
+
+
                 System.out.println("youmadeit");
 
             }
