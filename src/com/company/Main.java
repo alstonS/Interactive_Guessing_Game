@@ -4,8 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        Scanner input2 = new Scanner(System.in);
         System.out.println("Would you like to guess a number or would you want me to guess the number you are thinking? If you want to play game 1, enter '1' and for game 2, enter '2'");
-        if (input.next().equals("1")) {
+        String firstAns= input.next();
+        if (firstAns.equals("1")) {
 
 
             int ranNum = (int) ((Math.random() * (10)));
@@ -24,15 +26,20 @@ public class Main {
                 }
 
             }
-            System.out.println("You have guessed my number in " + guessCounter + " attempt(s)! That's great!");
+            System.out.println("You have guessed my number in " + guessCounter + " attempt(s)! That's great!" );
 
         }
         else
         {
-            if(input.next().equals("2")) {
+            if(firstAns.equals("2")) {
+                System.out.println("Hello, I am an AI and this is my game. What is your name?");
+                String name = input2.nextLine();
 
-                System.out.println("I can try to guess your number, but first select a difficulty level by entering '1' for numbers in ranges 1-10, '2' for numbers in range 1-100, '3' for numbers in range 1-1000, '4' for numbers in range 1-10000");
-
+                System.out.println(name + " , I can guess number, but first select a difficulty level.");
+                System.out.println("Enter '1' for numbers in ranges 1-10");
+                System.out.println("Enter '2' for numbers in ranges 1-100");
+                System.out.println("Enter '3' for numbers in ranges 1-1000");
+                System.out.println("Enter '4' for numbers in ranges 1-10000");
                 int maxValue = (int) Math.pow(10, Integer.parseInt(input.next()));
                 int minValue = 1;
                 int middleNumber = maxValue/2;
@@ -54,14 +61,14 @@ public class Main {
                 boolean secondGame = false;
                 boolean startGame = false;
                 boolean firstTime = true;
-                System.out.println(maxValue);
-                while (!secondGame) {
-                    if(!startGame) {
-                        System.out.println("The number I am guessing is " + firstMid + ", is your number higher, lower, or correct?");
-                        startGame = true;
-                    }
 
-                    if (input.next().equalsIgnoreCase("Higher")) {
+                System.out.println("The Range You have Chosen is from 0 to " + maxValue);
+                while (!secondGame) {
+
+
+                    System.out.println(name + " , The number im guessing now is " + middleNumber + ", is your number higher, lower, or correct?");
+                    String GuessingCheck = input.next();
+                    if (GuessingCheck.equalsIgnoreCase("Higher")) {
 
                     if(!firstTime) {
                         gMin = middleNumber;
@@ -76,7 +83,7 @@ public class Main {
                         firstTime = false;
                         
                     } else {
-                        if (input.next().equalsIgnoreCase("Lower")) {
+                        if (GuessingCheck.equalsIgnoreCase("Lower")) {
                             if(!firstTime) {
                                 lMax = middleNumber;
 
@@ -90,9 +97,9 @@ public class Main {
                         }
                         else
                         {
-                            if(input.next().equalsIgnoreCase(("Correct")))
+                            if(GuessingCheck.equalsIgnoreCase(("Correct")))
                             {
-                                System.out.println("Wow i found your answer! It only took you " + counterKey + " tries.");
+                                System.out.println("Wow i found your answer! That's Impressive " + name+ " , It only took you " + counterKey + " tries. " );
                                 secondGame = true;
                             }
                             else
@@ -101,7 +108,8 @@ public class Main {
                             }
                         }
                     }
-                    System.out.println("The number I am guessing now is " + middleNumber + ", is this number higher, lower, or correct?");
+
+
                 }
 
 
