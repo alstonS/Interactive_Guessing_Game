@@ -29,31 +29,82 @@ public class Main {
         }
         else
         {
-            if(input.next().equals("2"))
-            {
+            if(input.next().equals("2")) {
 
                 System.out.println("I can try to guess your number, but first select a difficulty level by entering '1' for numbers in ranges 1-10, '2' for numbers in range 1-100, '3' for numbers in range 1-1000, '4' for numbers in range 1-10000");
 
-                int maxValue= (int) Math.pow(10,Integer.parseInt(input.next()));
+                int maxValue = (int) Math.pow(10, Integer.parseInt(input.next()));
+                int minValue = 1;
+                int middleNumber = maxValue/2;
+                int firstMid = (maxValue + minValue) / 2;
 
+                int gMax=0;
+                int gMin=0;
+
+                int lMax=0;
+                int lMin=0;
+                int counterKey=0;
+
+                gMin = firstMid;
+                gMax = maxValue;
+                lMax= firstMid;
+                lMin=1;
+
+
+                boolean secondGame = false;
+                boolean startGame = false;
+                boolean firstTime = true;
                 System.out.println(maxValue);
-                System.out.println("The number I am guessing is " + maxValue/2 + ", is this number higher, lower, or correct?");
-                if(input.next().equalsIgnoreCase("Greater"))
-                {
-                    int secValue = (maxValue / 2)+ maxValue / 4;
-                    System.out.println("The number I am guessing now is " + secValue + ", is this number higher, lower, or correct?");
-                }
-                else
-                {
-                    if(input.next().equalsIgnoreCase("Lower"))
-                    {
-                        
-
+                while (!secondGame) {
+                    if(!startGame) {
+                        System.out.println("The number I am guessing is " + firstMid + ", is your number higher, lower, or correct?");
+                        startGame = true;
                     }
+
+                    if (input.next().equalsIgnoreCase("Higher")) {
+
+                    if(!firstTime) {
+                        gMin = middleNumber;
+                    }
+
+                        middleNumber = (gMin + gMax) / 2;
+
+                       lMax = middleNumber;
+                       lMin = gMin;
+                       counterKey++;
+
+                        firstTime = false;
+                        
+                    } else {
+                        if (input.next().equalsIgnoreCase("Lower")) {
+                            if(!firstTime) {
+                                lMax = middleNumber;
+
+                            }
+                            middleNumber = (lMin + lMax) / 2;
+
+                            gMax = lMax;
+                            gMin = middleNumber;
+                            counterKey++;
+                            firstTime = false;
+                        }
+                        else
+                        {
+                            if(input.next().equalsIgnoreCase(("Correct")))
+                            {
+                                System.out.println("Wow i found your answer! It only took you " + counterKey + " tries.");
+                                secondGame = true;
+                            }
+                            else
+                            {
+                                System.out.println("ENTER ONE OF THE FOLLOWING: HIGHER,LOWER, CORRECT");
+                            }
+                        }
+                    }
+                    System.out.println("The number I am guessing now is " + middleNumber + ", is this number higher, lower, or correct?");
                 }
 
 
-                System.out.println("youmadeit");
 
             }
             else
