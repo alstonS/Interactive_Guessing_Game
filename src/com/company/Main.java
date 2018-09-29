@@ -1,4 +1,5 @@
 package com.company;
+/** ALSTON SHI 9/25/18*/
 import java.util.Scanner;
 public class Main {
 
