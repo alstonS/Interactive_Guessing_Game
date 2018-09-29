@@ -45,21 +45,16 @@ public class Main {
                 int middleNumber = maxValue/2;
                 int firstMid = (maxValue + minValue) / 2;
 
-                int gMax=0;
-                int gMin=0;
 
-                int lMax=0;
-                int lMin=0;
                 int counterKey=0;
 
-                gMin = firstMid;
-                gMax = maxValue;
-                lMax= firstMid;
-                lMin=1;
+                int gMin = firstMid;
+                int gMax = maxValue;
+                int lMax= firstMid;
+                int lMin=1;
 
 
                 boolean secondGame = false;
-                boolean startGame = false;
                 boolean firstTime = true;
 
                 System.out.println("The Range You have Chosen is from 0 to " + maxValue);
