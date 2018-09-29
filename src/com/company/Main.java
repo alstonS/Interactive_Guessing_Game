@@ -35,7 +35,7 @@ public class Main {
                 System.out.println("Hello, I am an AI and this is my game. What is your name?");
                 String name = input2.nextLine();
 
-                System.out.println(name + " , I can guess number, but first select a difficulty level.");
+                System.out.println(name + " , I can guess number, but first select a difficulty level, but each increasing number will add a zero to max number.");
                 System.out.println("Enter '1' for numbers in ranges 1-10");
                 System.out.println("Enter '2' for numbers in ranges 1-100");
                 System.out.println("Enter '3' for numbers in ranges 1-1000");
